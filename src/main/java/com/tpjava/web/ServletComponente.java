@@ -84,6 +84,7 @@ public class ServletComponente extends HttpServlet {
 					
 					RequestDispatcher dispatcher = request.getRequestDispatcher("amComponente.jsp");
 					dispatcher.forward(request, response);
+					return;
 				}else if(request.getParameter("crear")!=null) {
 					
 					List<Marca> marcas = marcaDAO.selectAll();
@@ -100,6 +101,21 @@ public class ServletComponente extends HttpServlet {
 					
 					RequestDispatcher dispatcher = request.getRequestDispatcher("amComponente.jsp");
 					dispatcher.forward(request, response);
+					return;
+				} if(request.getParameter("searchInput")!= null) {
+					
+					
+					
+					String searchInput = request.getParameter("searchInput");
+					List<Componente> componentesEncontrados = componenteDAO.searchComponente(searchInput);
+					request.setAttribute("listaComponentes", componentesEncontrados);
+					request.setAttribute("listaComponentesSS", null);
+					request.setAttribute("listaComponentesBorrados", null);
+					RequestDispatcher dispatcher = request.getRequestDispatcher("componentes.jsp");
+					dispatcher.forward(request, response);
+					
+					
+					
 				}else {
 					
 					List<Componente> listaComponentes = componenteDAO.selectAll();
@@ -145,7 +161,7 @@ public class ServletComponente extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}else {			
+		}else{	
 			// TODO Auto-generated method stub
 			String descripcion = request.getParameter("descripcion");
 			String tamano = request.getParameter("tamano");

@@ -50,6 +50,50 @@ public class ComponenteDAO {
 	
 	private static final String SELECT_WHERE_SOCKET = "select count(id) as count from componentes where socket = ? and borrado = 0";
 	
+	private static final String SELECT_SEARCH = "select co.* from componentes co left join tipos ti on ti.id = co.tipo left join tamanos ta on ta.id = co.tamano left join marcas ma on ma.id = co.marca left join sockets so on so.id = co.socket where co.descripcion like ? OR ti.descripcion like ? OR ta.descripcion like ? OR ma.descripcion like ? OR so.descripcion like ?"; 
+	
+	
+	public List<Componente> searchComponente(String search) {
+		Componente componenteExistente = null;
+		List<Componente> componentes = new ArrayList<>();
+		// Step 1: Establishing a Connection
+		try (Connection connection = getConnection();
+				// Step 2:Create a statement using connection object
+				PreparedStatement preparedStatement = connection.prepareStatement(SELECT_SEARCH);) {
+			preparedStatement.setString(1, "%" + search + "%");
+			preparedStatement.setString(2, "%" + search + "%");
+			preparedStatement.setString(3, "%" + search + "%");
+			preparedStatement.setString(4, "%" + search + "%");
+			preparedStatement.setString(5, "%" + search + "%");
+			System.out.println(preparedStatement);
+			// Step 3: Execute the query or update query
+			ResultSet rs = preparedStatement.executeQuery();
+
+			// Step 4: Process the ResultSet object.
+			while (rs.next()) {
+				int idComponente = rs.getInt("id");
+				String descripcion = rs.getString("descripcion");
+				int tamano = rs.getInt("tamano");
+				int socket = rs.getInt("socket");
+				int consumo = rs.getInt("consumo");
+				int precio = rs.getInt("precio");
+				int marca = rs.getInt("marca");
+				int tipo=rs.getInt("tipo");
+				int stock=rs.getInt("stock");
+				Marca marcaObj = marcaDAO.selectMarca(marca);
+				Tamano tamanoObj = tamanoDAO.selectTamano(tamano);
+				Socket socketObj = socketDAO.selectSocket(socket);
+				Tipo tipoObj = tipoDAO.selectTipo(tipo);
+				componenteExistente = new Componente(idComponente,descripcion,tamanoObj,socketObj,consumo,precio,marcaObj,tipoObj,stock);
+				componentes.add(componenteExistente);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return componentes;
+	}
+	
 	public ComponenteDAO(){
 		
 	}

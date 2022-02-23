@@ -28,8 +28,8 @@
 					<td><c:out value="${marca.descripcion}" /></td>
 					<td><a href="marcas?editar=<c:out value='${marca.id}'/>">Editar</a></td>
 					<td><a href="marcas?eliminar=<c:out value='${marca.id}'/>">Eliminar</a></td>
-					<td>
-					<!-- <c:if test="${user.isAdmin == 'true'}"> <input type="checkbox" checked="true"/> </c:if>
+					<!-- 					<td>
+					<c:if test="${user.isAdmin == 'true'}"> <input type="checkbox" checked="true"/> </c:if>
 					<c:if test="${user.isAdmin != 'true'}"> <input type="checkbox"/> </c:if>
 					</td>
 					  -->

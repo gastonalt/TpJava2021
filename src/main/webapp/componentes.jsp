@@ -8,6 +8,16 @@
 	<%@include file="Template/header.html" %> <!-- ACA IMPORTAMOS EL HEADER -->
 	<!-- ACA VA EL BODY -->
 	<h1>Listado de componentes:</h1>
+	
+	<div style=" display:flex; justify-content: center; ">
+		<div  class="input-group mb-3"  style="width:50%;">
+			<form action="componentes?buscar=true" method="get">
+			  <input type="text" class="form-control" placeholder="Buscar un componente" aria-describedby="button-addon2" name="searchInput">
+			  <input class="btn btn-outline-secondary" type="submit" id="button-addon2" value="Buscar"/>
+		  	</form>
+	  	</div>
+	</div>	
+	
 	<div class="table-responsive">
 		<table class="table table-striped" style="width: 70%; margin: auto; border: 2px solid black; margin-top: 10px;">
 			<h5>Lista de componentes</h5>
@@ -33,17 +43,8 @@
 					<td><c:out value="${componente.consumo}" /></td>
 					<td><c:out value="${componente.stock}" /></td>
 					<td><c:out value="${componente.precio}" /></td>
-					<div style="visibility: hidden"><c:out value="${componente.borrado}" /></div>
 					<td><a href="./componentes?id=<c:out value='${componente.id}'/>">Eliminar</a></td>
 					<td><a href="./componentes?editar=<c:out value='${componente.id}'/>">Editar</a></td>					
-					<!--
-					<td>
-					<c:if test="${user.isAdmin == 'true'}"> <input type="checkbox" checked="true"/> </c:if>
-					<c:if test="${user.isAdmin != 'true'}"> <input type="checkbox"/> </c:if>
-					</td>
-					<td><a href="edit?id=<c:out value='${user.id}'/>">Editar</a></td>
-					<td><a href="delete?id=<c:out value='${user.id}'/>">Eliminar</a></td>
-					 -->
 				</tr>
 			</c:forEach>
 		</table>
