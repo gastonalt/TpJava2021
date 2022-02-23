@@ -43,6 +43,7 @@ public class ServletUsuario extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String action = request.getServletPath();
+		System.out.println(action);
 		switch (action) {
 			case "/signup":
 				signUp(request,response);

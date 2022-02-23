@@ -68,6 +68,7 @@ public class UserDAO {
 			ResultSet rs = preparedStatement.executeQuery();
 
 			// Step 4: Process the ResultSet object.
+			// Step 4: Process the ResultSet object.
 			while (rs.next()) {
 				int id = rs.getInt("id");
 				String username = rs.getString("username");
