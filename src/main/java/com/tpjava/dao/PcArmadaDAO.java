@@ -28,7 +28,7 @@ public class PcArmadaDAO {
 	ComponenteDAO componenteDAO = new ComponenteDAO();
 	
 	
-	private static final String INSERT_PCARMADA = "INSERT INTO pcArmadas" + " (cpu, gpu, memoria, gabinete, fuente) VALUES " + "(?, ?, ?, ?, ?);";
+	private static final String INSERT_PCARMADA = "INSERT INTO pcArmadas" + " (cpu, gpu, memoria, motherboard, gabinete, fuente, borrado, entregado, observaciones) VALUES " + "(?, ?, ?, ?, ?, ?, 0, 0, ?);";
 	
 	private static final String SELECT_ALL_PCARMADAS = "select * from pcArmadas where entregado = 0 and borrado = 0";
 	
@@ -96,20 +96,25 @@ public class PcArmadaDAO {
 			int cpu = pcArmada.getCpu().getId();
 			int gpu = pcArmada.getGpu().getId();
 			int memoria = pcArmada.getMemoria().getId();
+			int motherboard = pcArmada.getMotherboard().getId();
 			int gabinete = pcArmada.getGabinete().getId();
 			int fuente = pcArmada.getFuente().getId();
+			String obervaciones = pcArmada.getObservaciones();
 			
 			componentes.add(cpu);
 			componentes.add(gpu);
 			componentes.add(memoria);
+			componentes.add(motherboard);
 			componentes.add(gabinete);
 			componentes.add(fuente);
 			
 			preparedStatement.setInt(1, cpu);
 			preparedStatement.setInt(2, gpu);
 			preparedStatement.setInt(3, memoria);
-			preparedStatement.setInt(4, gabinete);
-			preparedStatement.setInt(5, fuente);
+			preparedStatement.setInt(4, motherboard);
+			preparedStatement.setInt(5, gabinete);
+			preparedStatement.setInt(6, fuente);
+			preparedStatement.setString(7, obervaciones);
 			
 			for(int id: componentes) {				
 				Componente componenteSeleccionado = componenteDAO.selectComponente(id);
@@ -147,12 +152,14 @@ public class PcArmadaDAO {
 		Componente cpu = pcSeleccionada.getCpu();
 		Componente gpu = pcSeleccionada.getGpu();
 		Componente memoria = pcSeleccionada.getMemoria();
+		Componente motherboard = pcSeleccionada.getMotherboard();
 		Componente gabinete = pcSeleccionada.getGabinete();
 		Componente fuente = pcSeleccionada.getFuente();
 		
 		componentes.add(cpu);
 		componentes.add(gpu);
 		componentes.add(memoria);
+		componentes.add(motherboard);
 		componentes.add(gabinete);
 		componentes.add(fuente);
 		
@@ -182,17 +189,20 @@ public class PcArmadaDAO {
 				int cpu = rs.getInt("cpu");
 				int gpu = rs.getInt("gpu");
 				int memoria = rs.getInt("memoria");
+				int motherboard = rs.getInt("motherboard");
 				int gabinete = rs.getInt("gabinete");
 				int fuente = rs.getInt("fuente");
 				int borrado = rs.getInt("borrado");
 				int entregado = rs.getInt("entregado");
+				String obseraciones = rs.getString("observaciones");
 
 				Componente cpuObj = componenteDAO.selectComponente(cpu);
 				Componente gpuObj = componenteDAO.selectComponente(gpu);
 				Componente memoriaObj = componenteDAO.selectComponente(memoria);
+				Componente motherboardObj = componenteDAO.selectComponente(motherboard);
 				Componente gabineteObj = componenteDAO.selectComponente(gabinete);
 				Componente fuenteObj = componenteDAO.selectComponente(fuente);
-				pcArmadaExistente = new PcArmada(id, cpuObj, gpuObj, memoriaObj, gabineteObj, fuenteObj, borrado, entregado);
+				pcArmadaExistente = new PcArmada(id, cpuObj, gpuObj, memoriaObj,motherboardObj, gabineteObj, fuenteObj, borrado, entregado, obseraciones);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -221,17 +231,21 @@ public class PcArmadaDAO {
 				int cpu = rs.getInt("cpu");
 				int gpu = rs.getInt("gpu");
 				int memoria = rs.getInt("memoria");
+				int motherboard = rs.getInt("motherboard");
 				int gabinete = rs.getInt("gabinete");
 				int fuente = rs.getInt("fuente");
 				int borrado = rs.getInt("borrado");
 				int entregado = rs.getInt("entregado");
+				String observaciones = rs.getString("observaciones");
 
 				Componente cpuObj = componenteDAO.selectComponente(cpu);
 				Componente gpuObj = componenteDAO.selectComponente(gpu);
 				Componente memoriaObj = componenteDAO.selectComponente(memoria);
+				Componente motherboardObj = componenteDAO.selectComponente(motherboard);
 				Componente gabineteObj = componenteDAO.selectComponente(gabinete);
 				Componente fuenteObj = componenteDAO.selectComponente(fuente);
-				pcArmadas.add(new PcArmada(idPcArmada, cpuObj, gpuObj, memoriaObj, gabineteObj, fuenteObj, borrado, entregado));
+				pcArmadas.add(new PcArmada(idPcArmada, cpuObj, gpuObj, memoriaObj, motherboardObj, gabineteObj, fuenteObj, borrado, entregado, observaciones));
+				System.out.println(observaciones);
 			}
 	} catch (SQLException e) {
 		System.out.println("Hubo un error");
@@ -260,17 +274,20 @@ public class PcArmadaDAO {
 				int cpu = rs.getInt("cpu");
 				int gpu = rs.getInt("gpu");
 				int memoria = rs.getInt("memoria");
+				int motherboard = rs.getInt("motherboard");
 				int gabinete = rs.getInt("gabinete");
 				int fuente = rs.getInt("fuente");
 				int borrado = rs.getInt("borrado");
 				int entregado = rs.getInt("entregado");
+				String observaciones = rs.getString("observaciones");
 
 				Componente cpuObj = componenteDAO.selectComponente(cpu);
 				Componente gpuObj = componenteDAO.selectComponente(gpu);
 				Componente memoriaObj = componenteDAO.selectComponente(memoria);
+				Componente motherboardObj = componenteDAO.selectComponente(motherboard);
 				Componente gabineteObj = componenteDAO.selectComponente(gabinete);
 				Componente fuenteObj = componenteDAO.selectComponente(fuente);
-				pcArmadas.add(new PcArmada(idPcArmada, cpuObj, gpuObj, memoriaObj, gabineteObj, fuenteObj, borrado, entregado));
+				pcArmadas.add(new PcArmada(idPcArmada, cpuObj, gpuObj, memoriaObj, motherboardObj, gabineteObj, fuenteObj, borrado, entregado, observaciones));
 			}
 	} catch (SQLException e) {
 		System.out.println("Hubo un error");

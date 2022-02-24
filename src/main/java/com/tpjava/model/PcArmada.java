@@ -6,10 +6,34 @@ public class PcArmada {
 	Componente cpu;
 	Componente gpu;
 	Componente memoria;
+	Componente motherboard;
 	Componente gabinete;
 	Componente fuente;
 	int borrado;
 	int entregado;
+	private String observaciones;
+	
+	
+	
+	public Componente getMotherboard() {
+		return motherboard;
+	}
+
+	public void setMotherboard(Componente motherborad) {
+		this.motherboard = motherborad;
+	}
+
+	public String getObservaciones() {
+		return observaciones;
+	}
+
+	public void setObservaciones(String observaciones) {
+		this.observaciones = observaciones;
+	}
+
+	public PcArmada() {
+		
+	}
 
 	public int getBorrado() {
 		return borrado;
@@ -60,7 +84,7 @@ public class PcArmada {
 		this.fuente = fuente;
 	}
 	
-	public PcArmada(Componente cpu, Componente gpu, Componente memoria, Componente gabinete, Componente fuente, int borrado, int entregado) {
+	public PcArmada(Componente cpu, Componente gpu, Componente memoria, Componente motherboard, Componente gabinete, Componente fuente, int borrado, int entregado, String observaciones) {
 		this.cpu = cpu;
 		this.gpu = gpu;
 		this.memoria = memoria;
@@ -68,17 +92,32 @@ public class PcArmada {
 		this.fuente = fuente;
 		this.borrado = borrado;
 		this.entregado = entregado;
+		this.motherboard = motherboard;
+		this.observaciones = observaciones;
 	}
 	
-	public PcArmada(Componente cpu, Componente gpu, Componente memoria, Componente gabinete, Componente fuente) {
+	public PcArmada(Componente cpu, Componente gpu, Componente memoria, Componente motherboard, Componente gabinete, Componente fuente,String observaciones) {
 		this.cpu = cpu;
 		this.gpu = gpu;
 		this.memoria = memoria;
 		this.gabinete = gabinete;
 		this.fuente = fuente;
+		this.motherboard = motherboard;
+		this.observaciones = observaciones;
 	}
 	
-	public PcArmada(int id, Componente cpu, Componente gpu, Componente memoria, Componente gabinete, Componente fuente, int borrado, int entregado) {
+	public PcArmada(int id, Componente cpu, Componente gpu, Componente memoria, Componente motherboard, Componente gabinete, Componente fuente, String observaciones) {
+		this.id = id;
+		this.cpu = cpu;
+		this.gpu = gpu;
+		this.memoria = memoria;
+		this.gabinete = gabinete;
+		this.fuente = fuente;
+		this.motherboard = motherboard;
+		this.observaciones = observaciones;
+	}
+	
+	public PcArmada(int id, Componente cpu, Componente gpu, Componente memoria, Componente motherboard, Componente gabinete, Componente fuente, int borrado, int entregado, String observaciones) {
 		this.id = id;
 		this.cpu = cpu;
 		this.gpu = gpu;
@@ -87,6 +126,8 @@ public class PcArmada {
 		this.fuente = fuente;
 		this.borrado = borrado;
 		this.entregado = entregado;
+		this.motherboard = motherboard;
+		this.observaciones = observaciones;
 	}
 
 }

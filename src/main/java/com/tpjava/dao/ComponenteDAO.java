@@ -52,6 +52,47 @@ public class ComponenteDAO {
 	
 	private static final String SELECT_SEARCH = "select co.* from componentes co left join tipos ti on ti.id = co.tipo left join tamanos ta on ta.id = co.tamano left join marcas ma on ma.id = co.marca left join sockets so on so.id = co.socket where co.descripcion like ? OR ti.descripcion like ? OR ta.descripcion like ? OR ma.descripcion like ? OR so.descripcion like ?"; 
 	
+	private static final String SELECT_COMPONENTE_TIPO = "select co.* from componentes co left join tipos ti on ti.id = co.tipo where ti.descripcion like ? and co.stock > 0";
+	
+	
+	public List<Componente> selectComponenteByTipo(String tipoParam) {
+
+		// using try-with-resources to avoid closing resources (boiler plate code)
+		List<Componente> componentesByTipo = new ArrayList<>();
+		// Step 1: Establishing a Connection
+		try (Connection connection = getConnection();
+
+				// Step 2:Create a statement using connection object
+			PreparedStatement preparedStatement = connection.prepareStatement(SELECT_COMPONENTE_TIPO)) {
+			preparedStatement.setString(1, '%' + tipoParam + '%');
+			System.out.println(preparedStatement);
+			// Step 3: Execute the query or update query
+			ResultSet rs = preparedStatement.executeQuery();
+
+			// Step 4: Process the ResultSet object.
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String descripcion = rs.getString("descripcion");
+				int tamano = rs.getInt("tamano");
+				int socket = rs.getInt("socket");
+				int consumo = rs.getInt("consumo");
+				int precio = rs.getInt("precio");
+				int marca = rs.getInt("marca");
+				int tipo = rs.getInt("tipo");
+				int stock=rs.getInt("stock");
+				Marca marcaObj = marcaDAO.selectMarca(marca);
+				Tamano tamanoObj = tamanoDAO.selectTamano(tamano);
+				Socket socketObj = socketDAO.selectSocket(socket);
+				Tipo tipoObj = tipoDAO.selectTipo(tipo);
+				componentesByTipo.add(new Componente(id,descripcion,tamanoObj,socketObj,consumo,precio,marcaObj,tipoObj,stock));
+			}
+	} catch (SQLException e) {
+		System.out.println("Hubo un error");
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return componentesByTipo;
+}
 	
 	public List<Componente> searchComponente(String search) {
 		Componente componenteExistente = null;
