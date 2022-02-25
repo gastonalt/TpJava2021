@@ -28,11 +28,6 @@
 					<td><c:out value="${tamano.descripcion}" /></td>
 					<td><a href="tamanos?editar=<c:out value='${tamano.id}'/>">Editar</a></td>
 					<td><a href="tamanos?eliminar=<c:out value='${tamano.id}'/>">Eliminar</a></td>
-					<td>
-					<!-- <c:if test="${user.isAdmin == 'true'}"> <input type="checkbox" checked="true"/> </c:if>
-					<c:if test="${user.isAdmin != 'true'}"> <input type="checkbox"/> </c:if>
-					</td>
-					  -->
 				</tr>
 			</c:forEach>
 		</table>
@@ -50,11 +45,6 @@
 					<td><c:out value="${tamano.descripcion}" /></td>
 					<td><a href="tamanos?editar=<c:out value='${tamano.id}'/>">Editar</a></td>
 					<td><a href="tamanos?restaurar=<c:out value='${tamano.id}'/>">Restaurar</a></td>
-					<td>
-					<!-- <c:if test="${user.isAdmin == 'true'}"> <input type="checkbox" checked="true"/> </c:if>
-					<c:if test="${user.isAdmin != 'true'}"> <input type="checkbox"/> </c:if>
-					</td>
-					  -->
 				</tr>
 			</c:forEach>
 		</table>

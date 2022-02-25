@@ -28,11 +28,6 @@
 					<td><c:out value="${tipo.descripcion}" /></td>
 					<td><a href="tipos?editar=<c:out value='${tipo.id}'/>">Editar</a></td>
 					<td><a href="tipos?eliminar=<c:out value='${tipo.id}'/>">Eliminar</a></td>
-					<td>
-					<!-- <c:if test="${user.isAdmin == 'true'}"> <input type="checkbox" checked="true"/> </c:if>
-					<c:if test="${user.isAdmin != 'true'}"> <input type="checkbox"/> </c:if>
-					</td>
-					  -->
 				</tr>
 			</c:forEach>
 		</table>
@@ -51,11 +46,6 @@
 					<td><c:out value="${tipo.descripcion}" /></td>
 					<td><a href="tipos?editar=<c:out value='${tipo.id}'/>">Editar</a></td>
 					<td><a href="tipos?restaurar=<c:out value='${tipo.id}'/>">Restaurar</a></td>
-					<td>
-					<!-- <c:if test="${user.isAdmin == 'true'}"> <input type="checkbox" checked="true"/> </c:if>
-					<c:if test="${user.isAdmin != 'true'}"> <input type="checkbox"/> </c:if>
-					</td>
-					  -->
 				</tr>
 			</c:forEach>
 		</table>

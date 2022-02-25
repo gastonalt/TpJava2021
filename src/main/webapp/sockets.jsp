@@ -28,11 +28,6 @@
 					<td><c:out value="${socket.descripcion}" /></td>
 					<td><a href="sockets?editar=<c:out value='${socket.id}'/>">Editar</a></td>
 					<td><a href="sockets?eliminar=<c:out value='${socket.id}'/>">Eliminar</a></td>
-					<td>
-					<!-- <c:if test="${user.isAdmin == 'true'}"> <input type="checkbox" checked="true"/> </c:if>
-					<c:if test="${user.isAdmin != 'true'}"> <input type="checkbox"/> </c:if>
-					</td>
-					  -->
 				</tr>
 			</c:forEach>
 		</table>
@@ -50,11 +45,6 @@
 					<td><c:out value="${socket.descripcion}" /></td>
 					<td><a href="sockets?editar=<c:out value='${socket.id}'/>">Editar</a></td>
 					<td><a href="sockets?restaurar=<c:out value='${socket.id}'/>">Restaurar</a></td>
-					<td>
-					<!-- <c:if test="${user.isAdmin == 'true'}"> <input type="checkbox" checked="true"/> </c:if>
-					<c:if test="${user.isAdmin != 'true'}"> <input type="checkbox"/> </c:if>
-					</td>
-					  -->
 				</tr>
 			</c:forEach>
 		</table>
