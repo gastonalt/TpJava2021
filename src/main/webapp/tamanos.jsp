@@ -60,6 +60,6 @@
 		</table>
 
 		<a href="./tamanos?crear=1">Crear un nuevo Tamano</a>
-
+<%@include file="Template/footer.html" %>
 </body>
 </html>

@@ -109,5 +109,6 @@
         <button type="submit" class="btn btn-dark">Crear</button>
     </form>
 </div>
+<%@include file="Template/footer.html" %>
 </body>
 </html>

@@ -61,6 +61,6 @@
 		</table>
 
 		<a href="./marcas?crear=1">Crear una nueva Marca</a>
-
+<%@include file="Template/footer.html" %>
 </body>
 </html>

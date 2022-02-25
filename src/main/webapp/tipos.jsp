@@ -61,6 +61,6 @@
 		</table>
 
 		<a href="./tipos?crear=1">Crear un nuevo Tipo</a>
-
+<%@include file="Template/footer.html" %>
 </body>
 </html>

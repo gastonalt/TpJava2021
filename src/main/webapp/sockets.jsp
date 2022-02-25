@@ -60,6 +60,6 @@
 		</table>
 
 		<a href="./sockets?crear=1">Crear un nuevo Socket</a>
-
+<%@include file="Template/footer.html" %>
 </body>
 </html>

@@ -138,15 +138,27 @@ public class ServletComponente extends HttpServlet {
 			int id = Integer.parseInt(request.getParameter("id"));
 			String descripcion = request.getParameter("descripcion");
 			String tamano = request.getParameter("tamano");
+			if(tamano == null) {
+				Componente componenteAux = componenteDAO.selectComponente(id);
+				tamano = componenteAux.getTamano().getId() + "";
+			}
 			String socket = request.getParameter("socket");
+			if(socket == null) {
+				Componente componenteAux = componenteDAO.selectComponente(id);
+				socket = componenteAux.getSocket().getId() + "";
+			}
 			String consumo = request.getParameter("consumo");
 			String precio = request.getParameter("precio");
 			String marca = request.getParameter("marca");
 			if(marca == null) {
 				Componente componenteAux = componenteDAO.selectComponente(id);
-				marca = componenteAux.getMarca().getDescripcion();
+				marca = componenteAux.getMarca().getId() + "";
 			}
 			String tipo = request.getParameter("tipo");
+			if(tipo == null) {
+				Componente componenteAux = componenteDAO.selectComponente(id);
+				tipo = componenteAux.getTipo().getId() + "";
+			}
 			String stock = request.getParameter("stock");
 			String borrado = request.getParameter("borrado");
 			System.out.println(borrado);

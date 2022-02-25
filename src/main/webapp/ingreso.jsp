@@ -29,6 +29,6 @@
 		</form>
 	</div>
 	
-	<%@include file="Template/footer.html" %><!-- FOOTER -->
+	<%@include file="Template/footer.html" %>
 </body>
 </html>

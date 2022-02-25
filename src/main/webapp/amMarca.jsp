@@ -29,5 +29,6 @@
           </form>
           </c:if>
     </div>
+    <%@include file="Template/footer.html" %>
 </body>
 </html>

@@ -128,6 +128,7 @@
 	</div>
 
 				<a href="./componentes?crear=1">Crear un nuevo componente</a>
+<%@include file="Template/footer.html" %>
 
 </body>
 </html>

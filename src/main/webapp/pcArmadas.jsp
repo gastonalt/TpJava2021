@@ -36,19 +36,17 @@
 				</tr>
 			</c:forEach>
 		</table>
-	</div>
 	
-		<div class="table-responsive">
 		<table class="table table-striped" style="width: 70%; margin: auto; border: 2px solid black; margin-top: 10px;">
 			<h5>Componentes entregados:</h5>
 			<thead class="table-dark">
-				<th style="width: 12.5%; text-align: center">CPU</th>
-				<th style="width: 12.5%; text-align: center">GPU</th>
-				<th style="width: 12.5%; text-align: center">MEMORIA RAM</th>
-				<th style="width: 12.5%; text-align: center">MOTHERBOARD</th>
-				<th style="width: 12.5%; text-align: center">GABINETE</th>
-				<th style="width: 12.5%; text-align: center">FUENTE</th>
-				<th style="width: 12.5%; text-align: center">OBSERVACIONES</th>
+				<th style="width: 15%; text-align: center">CPU</th>
+				<th style="width: 15%; text-align: center">GPU</th>
+				<th style="width: 15%; text-align: center">MEMORIA RAM</th>
+				<th style="width: 15%; text-align: center">MOTHERBOARD</th>
+				<th style="width: 15%; text-align: center">GABINETE</th>
+				<th style="width: 15%; text-align: center">FUENTE</th>
+				<th style="width: 15%; text-align: center">OBSERVACIONES</th>
 			</thead>
 			<c:forEach var="pc" items="${listaPcArmadasEntregadas}">
 				<tr style="text-align: center;">
@@ -63,8 +61,9 @@
 			</c:forEach>
 		</table>
 	</div>
-
+				<div style="display:block; width:100%">
 				<a href="./pcarmada?crear=1">Armar una nueva PC</a>
-
+				</div>
+<%@include file="Template/footer.html" %>
 </body>
 </html>
