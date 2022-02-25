@@ -10,39 +10,61 @@ Al armar una pc, el sistema comprueba que los componentes seleccionados sean com
 ### Casos de uso cubiertos en esta release:
 
 CUU01 - Añadir un nuevo componente
+
 CUU02 - Ver componentes creados
+
 CUU03 - Eliminar un componente
+
 CUU04 - Modificar un componente
 
 CUU05 - Agregar un Tipo de componente
+
 CUU06 - Modificar un Tipo de componente
+
 CUU07 - Eliminar un Tipo de componente
+
 CUU08 - Ver Tipos de componentes
 
 CUU09 - Agregar una Marca
+
 CUU10 - Modificar una Marca
+
 CUU11 - Eliminar una Marca
+
 CUU12 - Ver Marcas
 
 CUU13 - Agregar un Tamaño de componente
+
 CUU14 - Modificar un Tamaño de componente
+
 CUU15 - Eliminar un Tamaño de componente
+
 CUU16 - Ver Tamaños de componentes
 
 CUU17 - Agregar un Socket
+
 CUU18 - Modificar un Socket
+
 CUU19 - Eliminar un Socket
+
 CUU20 - Ver Tipos de Socket
 
 CUU21 - Armar un PC
+
 CUU22 - Ver PC armados
+
 CUU23 - Eliminar un PC armado
+
 CUU24 - Marcar un PC armado como ENTREGADO
 
 CUU25 - Registrar un usuario
+
 CUU26 - Loguear un usuario
+
 CUU27 - Modificar un usuario
+
 CUU28 - Eliminar un usuario
+
 CUU28 - Ver usuarios creados
 
 ### Realizado por:
