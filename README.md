@@ -7,7 +7,7 @@
 Nuestro trabajo consta de un sistema mediante el cual un usuario puede armar una pc. El sistema también consta de la posibilidad para un administrador, de cargar nuevos componentes, alterar el stock, cargar nuevas marcas, tamaños y tipos de sockets. También nos permite alterar los anteriormente mencionados, y darlos de baja, si es necesario.
 Al armar una pc, el sistema comprueba que los componentes seleccionados sean compatibles, mostrando solo los componentes que coincidan con el resto de partes ya seleccionadas.
 
-### Casos de uso cubiertos en esta release:
+### Casos de uso cubiertos en esta release [REGULARIDAD]:
 
 CUU01 - Añadir un nuevo componente
 
