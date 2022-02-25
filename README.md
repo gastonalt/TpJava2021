@@ -85,6 +85,8 @@ CUU35 - Modificar perfil del usuario
 
 CUU36 - Comprar un componente
 
+CUU37 - Comparar precios entre dos pcs armados
+
 ### Borrador del modelo de Dominio / Clases
 
 [![unknown.png](https://i.postimg.cc/Fsrq94qG/unknown.png)](https://postimg.cc/mhnVw0TF)
