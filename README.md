@@ -67,6 +67,10 @@ CUU28 - Eliminar un usuario
 
 CUU28 - Ver usuarios creados
 
+### Borrador del modelo de Dominio / Clases
+
+[![unknown.png](https://i.postimg.cc/Fsrq94qG/unknown.png)](https://postimg.cc/mhnVw0TF)
+
 ### Realizado por:
 
 Altamirano Edgar Gastón (legajo: 45282), Filippi Ramiro(legajo: 45057), Sanchez Joaquín(legajo: 44975).
