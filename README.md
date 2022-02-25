@@ -67,6 +67,24 @@ CUU28 - Eliminar un usuario
 
 CUU28 - Ver usuarios creados
 
+### Casos de uso adicionales para aprobación directa [COMPLETOS]:
+
+CUU29 - Comprar un pc armado
+
+CUU30 - Cancelar una compara de pc armado
+
+CUU31 - Modificar un PC armado
+
+CUU32 - Recuperar contraseña
+
+CUU33 - Añadir un envio al PC armado
+
+CUU34 - Consultar historial de PC armado
+
+CUU35 - Modificar perfil del usuario
+
+CUU36 - Comprar un componente
+
 ### Borrador del modelo de Dominio / Clases
 
 [![unknown.png](https://i.postimg.cc/Fsrq94qG/unknown.png)](https://postimg.cc/mhnVw0TF)
